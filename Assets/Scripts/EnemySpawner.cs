@@ -4,43 +4,42 @@ using System.Collections;
 public class EnemySpawner : MonoBehaviour {
 
 	[SerializeField]
-	private GameObject enemyPrefab; //loads enemy prefab
+	GameObject enemyPrefab; //loads enemy prefab
+	GameObject player;
 	[SerializeField]
-	private Transform player; //identfies player
-	[SerializeField]
-	private Transform ground; //identifies ground
+	Transform ground; //identifies ground
 
 	[SerializeField]
-	private float maxEnemy; 
+	float maxEnemy; 
 	[SerializeField]
-	private float minEnemy;
-	private float enemyNumber;
+	float minEnemy;
+	float enemyNumber;
 
-	private Vector3 spawnPoint; // initial spawn point 
-	private Vector3 lastSpawnPoint; //subsequent spawn point
-	private float positionX;
-	private float positionZ;
+	Vector3 spawnPoint; // initial spawn point 
+	Vector3 lastSpawnPoint; //subsequent spawn point
+	float positionX;
+	float positionZ;
 
 	[SerializeField]
-	private float spawnRange;
+	float spawnRange;
 
 	// Use this for initialization
 	void Start () {
-
 		enemyNumber = Random.Range(0f,maxEnemy - minEnemy); //randomizes how many players to spawn
+		player = GameObject.FindGameObjectWithTag ("Player"); //identify the player
 		SpawnPoint ();
 		Spawner ();
 	
 	}
 
-	private void SpawnPoint () {
-		positionX = player.position.x * -1; // x position is opposite of the player (need to adjust later if player spwan point is randomized)
-		positionZ = Random.Range (ground.localScale.z / 2, ground.localScale.z / -2) - maxEnemy; // z position is maximum of the ground, with a buffer I randomly decided on the maxEnemy
+	void SpawnPoint () {
+		positionZ = player.transform.position.z * -1; // x position is opposite of the player (need to adjust later if player spwan point is randomized)
+		positionX = Random.Range (ground.localScale.x / 2, ground.localScale.x / -2) - maxEnemy; // z position is maximum of the ground, with a buffer I randomly decided on the maxEnemy
 		spawnPoint = new Vector3 (positionX, 0.8f, positionZ);
 		lastSpawnPoint = spawnPoint;
 	}
 
-	private void Spawner () {
+	void Spawner () {
 		while (enemyNumber < maxEnemy) { //spawn them shits
 			Instantiate (enemyPrefab, lastSpawnPoint, Quaternion.identity);
 			enemyNumber++;
@@ -48,7 +47,7 @@ public class EnemySpawner : MonoBehaviour {
 		}
 	}
 
-	private void EnemyHuddleGeneration () {
+	void EnemyHuddleGeneration () {
 		//moves the next spawn point away by the size of the enemyPrefab in a random direction, for both x and z separately
 		lastSpawnPoint.z = lastSpawnPoint.z + enemyPrefab.transform.localScale.z * Random.Range(-spawnRange,spawnRange);
 		lastSpawnPoint.x = lastSpawnPoint.x + enemyPrefab.transform.localScale.x * Random.Range(-spawnRange,spawnRange);

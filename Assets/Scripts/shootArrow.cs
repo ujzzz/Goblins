@@ -73,7 +73,7 @@ public class shootArrow : MonoBehaviour {
 				// sets arrow target to where mouse was originally clicked
 				arrowOrigin = arrowOrigin - transform.position;
 				arrowSpawn = transform.position; 
-				arrowSpawn.y += 1f;
+				arrowSpawn.y += 1.2f;
 				// creates the arrow right inside the goblin (need to adjust once model is ready so it spawns inside the bow basically)
 				GameObject arrow = Instantiate (arrowPrefab, arrowSpawn, transform.rotation) as GameObject;
 				// shoots that shit by applying a physics force that is based on how long the mouse was held down

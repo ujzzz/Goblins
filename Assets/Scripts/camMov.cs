@@ -83,6 +83,14 @@ public class camMov : MonoBehaviour {
 				zoom = 0;
 			}
 		}
+
+		//if you want to change between perspective and orthographic cameras, press o and p
+		if (Input.GetKeyDown ("o")) {
+			Camera.main.orthographic = true;
+		}
+		if (Input.GetKeyDown ("p")) {
+			Camera.main.orthographic = false;
+		}
 	}
 
 	void MoveToTarget (){
@@ -115,14 +123,15 @@ public class camMov : MonoBehaviour {
 	}
 
 	void ZoomInOnTarget(){
-
-		position.distanceFromTarget += zoomInput * position.zoomSmooth;
-
-		if (position.distanceFromTarget > position.maxZoom) {
-			position.distanceFromTarget = position.maxZoom;
-		}
-		if (position.distanceFromTarget < position.minZoom) {
-			position.distanceFromTarget = position.minZoom;
+		// the zoom is weird in orthographic mode, so I don't active it then
+		if (Camera.main.orthographic == false) {
+			position.distanceFromTarget += zoomInput * position.zoomSmooth;
+			if (position.distanceFromTarget > position.maxZoom) {
+				position.distanceFromTarget = position.maxZoom;
+			}
+			if (position.distanceFromTarget < position.minZoom) {
+				position.distanceFromTarget = position.minZoom;
+			}
 		}
 	}
 }

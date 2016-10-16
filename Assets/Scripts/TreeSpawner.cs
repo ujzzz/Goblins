@@ -11,7 +11,7 @@ public class TreeSpawner : MonoBehaviour {
 	[SerializeField]
 	private float spawnArea = 3f;
 	[SerializeField]
-	private float spawnSize = 5f;
+	public float spawnSize = 5f;
 	private float lastX = 0f;
 	private float lastZ = 0f;
 	private float maxSpawnArea;
@@ -22,7 +22,7 @@ public class TreeSpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {	
 		maxSpawnArea = ground.localScale.x / 2; //makes maximum spawn area no bigger than the ground area
-		treeAmount = ground.localScale.x * 6; //adjusts how much tree to the size of the map
+		treeAmount = ground.localScale.x * 10; //adjusts how much tree to the size of the map
 	}
 	
 	// Update is called once per frame

@@ -45,15 +45,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Models\C&amp;C_Pack\Goblin_rouge\Script\Goblin_ro_ctrl.cs" />
+     <Compile Include="Assets\Scripts\AI\EnemyAlertLeader.cs" />
+     <Compile Include="Assets\Scripts\AI\EnemyAttackPlayer.cs" />
+     <Compile Include="Assets\Scripts\AI\EnemyFindBody.cs" />
+     <Compile Include="Assets\Scripts\AI\EnemyFindLeader.cs" />
+     <Compile Include="Assets\Scripts\AI\EnemyGatherOthers.cs" />
+     <Compile Include="Assets\Scripts\AI\EnemyHuddle.cs" />
+     <Compile Include="Assets\Scripts\AI\EnemyLookOut.cs" />
+     <Compile Include="Assets\Scripts\AI\EnemyManager.cs" />
+     <Compile Include="Assets\Scripts\AI\EnemyResetAnims.cs" />
+     <Compile Include="Assets\Scripts\AI\EnemySearchPlayer.cs" />
+     <Compile Include="Assets\Scripts\AI\EnemySendScouts.cs" />
+     <Compile Include="Assets\Scripts\AI\EnemyStats.cs" />
+     <Compile Include="Assets\Scripts\AI\arrowHit.cs" />
+     <Compile Include="Assets\Scripts\AI\enemyGoalSeek.cs" />
+     <Compile Include="Assets\Scripts\EnemyDrawFOV.cs" />
+     <Compile Include="Assets\Scripts\EnemyDrawFieldOfView.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\ShroomSpawner.cs" />
      <Compile Include="Assets\Scripts\TreeSpawner.cs" />
-     <Compile Include="Assets\Scripts\arrowHit.cs" />
      <Compile Include="Assets\Scripts\camMov.cs" />
      <Compile Include="Assets\Scripts\enemyChat.cs" />
+     <Compile Include="Assets\Scripts\enemyPlayerSeek.cs" />
      <Compile Include="Assets\Scripts\shootArrow.cs" />
-     <None Include="Assets\Models\C&amp;C_Pack\Goblin_rouge\readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
